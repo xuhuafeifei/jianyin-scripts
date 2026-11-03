@@ -46,8 +46,11 @@ F:\JYAutoEdit\
 
 ```
 MDOCS_TOKEN=<mdocs 设置页创建的 CLI Token>
-MDOCS_SERVER=http://<mdocs-host>:4000
+MDOCS_SERVER=http://<你的 mdocs 服务地址>:4000
 ```
+
+> 服务地址和 Token 只放在本机环境变量里，不写进仓库、不写进代码。
+> 代码里默认值是 `http://127.0.0.1:4000`，远程部署时用 `MDOCS_SERVER` 覆盖。
 
 ```powershell
 $py = "C:\Users\发\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\python.exe"
