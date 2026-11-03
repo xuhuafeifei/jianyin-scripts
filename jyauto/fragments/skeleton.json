@@ -1,0 +1,57 @@
+{
+ "id": "",
+ "version": 360000,
+ "new_version": "189.0.0",
+ "duration": 0,
+ "color_space": 0,
+ "config": {},
+ "canvas_config": {
+  "width": 1920,
+  "height": 1080
+ },
+ "tracks": [],
+ "materials": {
+  "videos": [],
+  "audios": [],
+  "texts": [],
+  "canvases": [],
+  "audio_fades": [],
+  "beats": [],
+  "material_animations": [],
+  "placeholder_infos": [],
+  "speeds": [],
+  "sound_channel_mappings": [],
+  "material_colors": [],
+  "loudnesses": [],
+  "vocal_separations": []
+ },
+ "keyframes": {},
+ "platform": {
+  "os": "windows",
+  "os_version": "10.0.19045",
+  "app_id": 3704,
+  "app_version": "11.6.0",
+  "app_source": "lv",
+  "device_id": "3dcab011a1b2bf6c7094e1dba79f546e",
+  "mac_address": "b354b64af259f618c9bd2d21cfeb1e1a"
+ },
+ "last_modified_platform": {
+  "os": "windows",
+  "os_version": "10.0.19045",
+  "app_id": 3704,
+  "app_version": "11.6.0",
+  "app_source": "lv",
+  "device_id": "3dcab011a1b2bf6c7094e1dba79f546e",
+  "mac_address": "b354b64af259f618c9bd2d21cfeb1e1a"
+ },
+ "render_index_track_mode_on": true,
+ "path": "",
+ "uneven_animation_template_info": {},
+ "smart_ads_info": {},
+ "function_assistant_info": {
+  "fps": {}
+ },
+ "keyframe_graph_list": [],
+ "relationships": [],
+ "name": ""
+}
