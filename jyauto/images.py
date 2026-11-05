@@ -125,9 +125,24 @@ def _init_refs() -> None:
 
 
 def slot_plan(n_subtitles: int, per_image: int, n_images: int) -> list[tuple[int, int]]:
-    """Return (first_subtitle_index, count) per image slot."""
+    """Return (first_subtitle_index, count) per image slot.
+
+    per_image <= 0 means "one slot per picture": the subtitles are spread over
+    exactly min(n_images, n_subtitles) slots, so every picture is used once and
+    the slot lengths differ by at most one subtitle.
+    """
     if per_image <= 0:
-        per_image = max(1, round(n_subtitles / max(1, n_images)))
+        n_slots = max(1, min(n_images, n_subtitles))
+        base, extra = divmod(n_subtitles, n_slots)
+        slots = []
+        i = 0
+        for k in range(n_slots):
+            take = base + (1 if k < extra else 0)
+            if take <= 0:
+                continue
+            slots.append((i, take))
+            i += take
+        return slots
     slots = []
     i = 0
     while i < n_subtitles:
@@ -207,7 +222,9 @@ def add_photos(draft: drafts.Draft, paths: Iterable[str],
                               max(s["target_timerange"]["start"] + s["target_timerange"]["duration"]
                                   for s in track["segments"]))
     draft.save_content(content)
-    log(f"  已铺 {n} 张图片（每张约 {slots[0][1]} 条字幕）")
+    counts = [c for _, c in slots]
+    per = f"{min(counts)}-{max(counts)}" if min(counts) != max(counts) else str(counts[0])
+    log(f"  已铺 {n} 张图片（每张 {per} 条字幕）")
     return n
 
 
