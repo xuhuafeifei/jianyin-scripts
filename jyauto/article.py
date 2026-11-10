@@ -93,7 +93,9 @@ def _speakable(line: str) -> bool:
     if not line or _NOSPOKEN.match(line):
         return False
     core = re.sub(r"[\s\W_]", "", line, flags=re.UNICODE)
-    return len(core) >= 2
+    # keep one-character lines: dramatic beats like "不" / "来" / "……疼" are
+    # real narration and must not be silently dropped
+    return len(core) >= 1
 
 
 def to_subtitles(markdown: str, max_chars: int = 18,
